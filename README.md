@@ -1,6 +1,6 @@
 # scfinder
 
-A very very simple way to find http 401 and 403 urls.
+A very very simple way to find the http status code for a set of urls.
  
 ## Why?
 
@@ -9,15 +9,15 @@ Maybe you want to bypass some 401 or 403 urls and try to access forbidden conten
 ## How?
 
 ```
-$ cat <urls.txt> | ./scfinder.sh <status code>
+$ cat <urls> | ./scfinder.sh <status code>
 ```
 
-- urls.txt: a file with one url per line
-- status code: 401 (unauthorized) or 403 (forbidden)
+- urls: a file with one url per line
+- status code: 401 (unauthorized), 403 (forbidden), or ...?
 
 # How it works?
 
-Very simple: it makes a curl request and test the http code result.
+Very simple: it makes a curl request and tests the http code result.
 
 # Install
 
@@ -41,13 +41,7 @@ Probe for the working subs with [httprobe](https://github.com/tomnomnom/httprobe
 $ cat subfinder.txt | httprobe > httprobe.txt
 ```
 
-Get the 401:
-
-```
-$ cat httprobe.txt | ./scfinder.sh 401 > 401.txt
-```
-
-Get the 403:
+Get all the 403 urls:
 
 ```
 $ cat httprobe.txt | ./scfinder.sh 403 > 403.txt
