@@ -1,15 +1,15 @@
 #!/bin/bash
 
 # How to use it?
-if [ "$1" != 401 ] && [ "$1" != 403 ]
+if [ "$#" -eq 0 ] || [ "$1" == "-h" ]
 then
-	echo "Usage: cat <urls.txt> | ./scfinder.sh <status code>"
+	echo "Usage: cat <urls> | ./scfinder.sh <status code>"
 	echo ""
 	echo "Params:"
-	echo "   <urls.txt>: one url per line"
-	echo "   <status code>: 401 (unauthorized) or 403 (forbidden)"
+	echo "   <urls>: one url per line"
+	echo "   <status code>: 401 (unauthorized), 403 (forbidden), or ...?"
 	echo ""
-	echo "Example: cat subs.txt | ./scfinder.sh 401"
+	echo "Example: cat subs.txt | ./scfinder.sh 403"
 	echo ""
 	echo "by @marcosdell"
 	exit
@@ -22,7 +22,7 @@ while read url
 do 
 	result=$(curl -L -s -m 1 -o /dev/null -w "%{http_code}" $url)
 
-	if [ $result == $STATUS_CODE ]
+	if [ $result -eq $STATUS_CODE ]
 	then
 		echo $url
 	fi	
