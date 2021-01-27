@@ -12,8 +12,8 @@ Maybe you want to bypass some 401 or 403 urls and try to access forbidden conten
 $ cat <urls.txt> | ./scfinder.sh <status code>
 ```
 
-(*) <urls.txt>: a file with one url per line
-(*) <status code>: 401 (unauthorized) or 403 (forbidden)
+(*) urls.txt: a file with one url per line
+(*) status code: 401 (unauthorized) or 403 (forbidden)
 
 # How it works?
 
