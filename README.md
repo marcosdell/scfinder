@@ -4,15 +4,15 @@ A very very simple way to find http 401 and 403 urls.
  
 ## Why?
 
-Maybe you want to bypass some 401/403 subs or urls and try to access forbidden content ...
+Maybe you want to bypass some 401 or 403 urls and try to access forbidden content ... \o/
 
 ## How?
 
 ```
-$ cat <subs.txt> | ./scfinder.sh <status code>
+$ cat <urls.txt> | ./scfinder.sh <status code>
 ```
 
-(*) <subs.txt>: is a file with one url per line.
+(*) <urls.txt>: a file with one url per line
 (*) <status code>: 401 (unauthorized) or 403 (forbidden)
 
 # How it works?
